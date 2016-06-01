@@ -37,23 +37,7 @@ public class LoginPageActions extends GetPage {
 		logMessage("[INFO]: log into the application using credentials '" + username + " / " + password + "'");
 	}
 
-	public void verify_Login_Error_Message_Is_Displayed(String errormsgtxt) {
-		verifyElementTextContains("txt_errormsg", "fail");
-	}
-
-	public void verify_Submit_Button_Is_Enabled() {
-		Assert.assertTrue(element("btn_signin").getAttribute("disabled")
-				.equalsIgnoreCase("false"),
-				"[ASSERT FAILED]: Submit button is inactive\n");
-		logMessage("[ASSERT PASSED]: Submit button is active");
-	}
-
-	public void verify_submit_button_is_inactive() {
-		Assert.assertTrue(element("btn_signin").getAttribute("disabled")
-				.equalsIgnoreCase("true"),
-				"[ASSERT FAILED]: Submit button is active\n");
-		logMessage("[ASSERT PASSED]: Submit button is inactive");
-	}
+	
 
     public void open_login_form() {
         

@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 
-import com.moni.automation.TestSessionInitiator;
+import com.moni.automation.TestCreator;
 
 /**
  *
@@ -18,7 +18,7 @@ import com.moni.automation.TestSessionInitiator;
  */
 public class Login_Layout_Test {
 
-    TestSessionInitiator test;
+    TestCreator test;
 
     String[] browserSizes = {"720x360"};
     String[] layoutTags = {"mobile"};
@@ -26,7 +26,7 @@ public class Login_Layout_Test {
     @BeforeClass
     @Parameters("browser")
     public void start_test_session(@Optional String browser) {
-        test = new TestSessionInitiator("Login_Layout_Tests", browser);
+        test = new TestCreator("Login_Layout_Tests", browser);
     }
 
     @Test
