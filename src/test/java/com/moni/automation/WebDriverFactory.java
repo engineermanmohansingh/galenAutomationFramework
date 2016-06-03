@@ -13,10 +13,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
-import org.openqa.selenium.ie.InternetExplorerDriver;
+//import org.openqa.selenium.ie.InternetExplorerDriver; //dying in market
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.safari.SafariDriver;
+//import org.openqa.selenium.safari.SafariDriver; // just in case if one is executing on MAC
 import org.testng.Reporter;
 
 public class WebDriverFactory {
@@ -46,12 +46,11 @@ public class WebDriverFactory {
             } else if (browser.equalsIgnoreCase("chrome")) {
                 return getChromeDriver(seleniumconfig.get("driverpath"));
             } else if (browser.equalsIgnoreCase("Safari")) {
-                return getSafariDriver();
+//                return getSafariDriver();
             } else if ((browser.equalsIgnoreCase("ie"))
                     || (browser.equalsIgnoreCase("internetexplorer"))
                     || (browser.equalsIgnoreCase("internet explorer"))) {
-                return getInternetExplorerDriver(seleniumconfig
-                        .get("driverpath"));
+//                return getInternetExplorerDriver(seleniumconfig.get("driverpath"));
             } //TODO: treat mobile browser and separate instance on lines of remote driver
             else if (browser.equalsIgnoreCase("mobile")) {
                 return setMobileDriver(seleniumconfig);
@@ -95,24 +94,24 @@ public class WebDriverFactory {
         return new ChromeDriver(cap);
     }
 
-    private static WebDriver getInternetExplorerDriver(String driverpath) {
-        if (driverpath.endsWith(".exe")) {
-            System.setProperty("webdriver.ie.driver", driverpath);
-        } else {
-            System.setProperty("webdriver.ie.driver", driverpath
-                    + "IEDriverServer.exe");
-        }
-        capabilities
-                .setCapability(
-                        InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,
-                        true);
-        capabilities.setCapability("ignoreZoomSetting", true);
-        return new InternetExplorerDriver(capabilities);
-    }
+//    private static WebDriver getInternetExplorerDriver(String driverpath) {
+//        if (driverpath.endsWith(".exe")) {
+//            System.setProperty("webdriver.ie.driver", driverpath);
+//        } else {
+//            System.setProperty("webdriver.ie.driver", driverpath
+//                    + "IEDriverServer.exe");
+//        }
+//        capabilities
+//                .setCapability(
+//                        InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,
+//                        true);
+//        capabilities.setCapability("ignoreZoomSetting", true);
+//        return new InternetExplorerDriver(capabilities);
+//    }
 
-    private static WebDriver getSafariDriver() {
-        return new SafariDriver();
-    }
+//    private static WebDriver getSafariDriver() {
+//        return new SafariDriver();
+//    }
 
     private static WebDriver getFirefoxDriver() {
         FirefoxProfile profile = new FirefoxProfile();
